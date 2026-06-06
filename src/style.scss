@@ -1,1 +1,151 @@
+:root {
+	color-scheme: light;
+	--fg: #0a0a0e;
+	--bg: #ffeae2;
 
+	@media (prefers-color-scheme: dark) {
+		color-scheme: dark;
+		--fg: #ffeae2;
+		--bg: #0a0a0e;
+	}
+
+	color: var(--fg);
+	scrollbar-gutter: stable;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 1rem;
+	background-color: var(--bg);
+	max-width: max(80%, 40rem);
+	margin-inline: auto;
+}
+
+section#sectionInput {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem 0.75rem;
+
+	>div {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		>input[type="color"] {
+			width: 100%;
+		}
+	}
+
+	input[type="checkbox"] {
+		justify-self: flex-start;
+	}
+}
+
+section#sectionOutput {
+	>div {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+
+		> :first-child {
+			margin-inline-end: auto;
+		}
+
+		#autoupdate:checked+#update {
+			display: none;
+		}
+	}
+
+	#preview {
+		width: 100%;
+		min-height: 25vh;
+		background-color: var(--bg);
+		border: none;
+		margin-top: 0.5rem;
+	}
+}
+
+button,
+input[type="color"],
+input[type="submit"],
+input[type="file"],
+input[type="checkbox"],
+label {
+	cursor: pointer;
+
+	&:disabled {
+		cursor: not-allowed;
+	}
+}
+
+p,
+span,
+li {
+	font-weight: 300;
+	line-height: 1.5;
+}
+
+a {
+	color: inherit;
+	transition: opacity 0.1s ease-out;
+
+	&:hover,
+	&:focus {
+		opacity: 0.8;
+	}
+}
+
+div#preloader {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	flex-direction: column;
+	background-color: inherit;
+	z-index: 100;
+}
+
+main>header,
+main>section,
+main>footer {
+	clear: both;
+	margin-bottom: 1em;
+}
+
+main {
+	padding-bottom: 2em;
+}
+
+footer {
+	background-color: inherit;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin-inline: auto;
+	margin-bottom: 0;
+	padding-bottom: 1em;
+	padding-top: 0.5rem;
+	font-size: 0.9em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	>*:not(:first-child)::before {
+		content: '•';
+		margin-inline: 0.5rem;
+	}
+}

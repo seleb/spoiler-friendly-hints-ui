@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="src/assets/icon.png" />
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
   <meta name="theme-color" content="#000000">
   <title>%TITLE%</title>
@@ -35,7 +36,52 @@
   <main>
     <div id="about">
       <h1>%TITLE%</h1>
+      <p>converts a list of space-indented lines of text into a simple html file with nested collapsible sections</p>
+      <p>this can be used to create spoiler-friendly hint files. examples of hint files made in this way can be found <a
+          href="https://sweetheartsquad.itch.io/toc-toc">here</a> and <a
+          href="https://dominoclub.itch.io/pippin-please-adequate-attorney">here</a></p>
     </div>
+
+    <h2>input</h2>
+    <section id="sectionInput">
+      <label for="input">text</label>
+      <textarea id="input" rows="15"></textarea>
+
+      <span>theme</span>
+      <div>
+        <input title="background" type="color" value="#00000" id="colorBg" />
+        <input title="text" type="color" value="#FFFFFF" id="colorText" />
+        <input title="accent" type="color" value="#FFFFCC" id="colorAccent" />
+      </div>
+
+      <label title="lines including this string will be highlighted" for="highlight">highlight</label>
+      <input type="text" value="!!!" id="highlight" />
+
+      <label title="whether to include preamble section" for="preamble">preamble</label>
+      <input type="checkbox" checked id="preamble" />
+
+      <label title="title used in document head and preamble" for="title">title</label>
+      <input type="text" id="title" />
+
+      <label title="title in preamble will be wrapped with this url if provided" for="url">url</label>
+      <input type="text" id="url" />
+    </section>
+
+    <h2>output</h2>
+    <section id="sectionOutput">
+      <div>
+        <button type="button" id="download">download</button>
+
+        <label for="autoupdate">autoupdate preview</label>
+        <input type="checkbox" checked id="autoupdate" />
+
+        <button type="button" id="update">update preview</button>
+      </div>
+
+      <iframe id="preview"></iframe>
+    </section>
+  </main>
+
   <footer>
     <span>%TITLE% v%VERSION%</span>
     <span><a href="https://github.com/seleb/spoiler-friendly-hints-ui" target="_blank"
