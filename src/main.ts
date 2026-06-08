@@ -11,14 +11,18 @@ export async function main() {
 	const elPreamble = document.querySelector<HTMLInputElement>('#preamble');
 	const elTitle = document.querySelector<HTMLInputElement>('#title');
 	const elUrl = document.querySelector<HTMLInputElement>('#url');
-	const elPreview = document.querySelector<HTMLIFrameElement>('#preview');
+	const elPreviewHtml =
+		document.querySelector<HTMLIFrameElement>('#previewHtml');
+	const elPreviewRaw =
+		document.querySelector<HTMLTextAreaElement>('#previewRaw');
 	const elAutoupdate = document.querySelector<HTMLInputElement>('#autoupdate');
 	const elUpdate = document.querySelector<HTMLButtonElement>('#update');
 	const elDownload = document.querySelector<HTMLButtonElement>('#download');
 
 	if (
 		!elInput ||
-		!elPreview ||
+		!elPreviewHtml ||
+		!elPreviewRaw ||
 		!elColorText ||
 		!elColorBg ||
 		!elColorAccent ||
@@ -46,7 +50,8 @@ export async function main() {
 
 	const updateOutput = () => {
 		const htmlOutput = convertWithOptions();
-		elPreview.srcdoc = htmlOutput;
+		elPreviewHtml.srcdoc = htmlOutput;
+		elPreviewRaw.textContent = htmlOutput;
 	};
 
 	[

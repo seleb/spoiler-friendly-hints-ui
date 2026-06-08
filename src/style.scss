@@ -65,12 +65,17 @@ section#sectionOutput {
 		}
 	}
 
-	#preview {
+	#previewHtml,
+	#previewRaw {
 		width: 100%;
 		min-height: 25vh;
 		background-color: var(--bg);
 		border: none;
 		margin-top: 0.5rem;
+	}
+
+	#previewRaw {
+		tab-size: 1em;
 	}
 }
 
