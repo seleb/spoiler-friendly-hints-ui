@@ -64,14 +64,15 @@ export async function main() {
 
 	elInput.value =
 		elInput.value ||
-		`Did you check under the sofa?
- It's not there.
-Did you check by the entrance?
- It's not there.
-Did you check inside the bathroom?
- Did you shut the door after you?
-  !!! Did you check every surface?
-   It's in the bathroom, behind the door, on the back wall.`;
+		`hints
+ Did you check under the sofa?
+  It's not there.
+ Did you check by the entrance?
+  It's not there.
+ Did you check inside the bathroom?
+  Did you shut the door after you?
+   !!! Did you check every surface?
+    It's in the bathroom, behind the door, on the back wall.`;
 
 	updateOutput();
 
